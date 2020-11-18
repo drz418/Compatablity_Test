@@ -1,17 +1,14 @@
 /*
-  Analog input, analog output, serial output
-
-
   The circuit:
   - potentiometer connected to analog pin 0.
     Center pin of the potentiometer goes to the analog pin.
     side pins of the potentiometer go to +5V and ground
   - LED connected from digital pin 7,8,9 to ground
 
-  http://www.arduino.cc/en/Tutorial/AnalogInOutSerial
+  based on the open source code @ http://www.arduino.cc/en/Tutorial/AnalogInOutSerial
 */
 
-// These constants won't change. They're used to give names to the pins used:
+// These constants are used to give names to the pins used:
 const int analogInPin = A0;  // Analog input pin that the potentiometer is attached to
 const int analogOutPin1 = 9; // Analog output pin that the Yellow LED is attached to
 const int analogOutPin2 = 8; // Analog output pin that the Green LED is attached to
@@ -30,9 +27,6 @@ void loop() {
   // read the analog in value:
   sensorValue = analogRead(analogInPin);
   
-  // map it to the range of the analog out:
-  //outputValue = map(sensorValue, 0, 1023, 0, 255);
-
   if (sensorValue < 147) {
   
   //Setting the outpin and power and write the word to the serial monitor
@@ -89,6 +83,5 @@ if (sensorValue > 878) {
   Serial.print("\t see"); }
   
   // wait 2 milliseconds before the next loop for the analog-to-digital
-  // converter to settle after the last reading:
   delay(2);
 }
